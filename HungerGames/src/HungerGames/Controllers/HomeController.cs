@@ -10,6 +10,7 @@ namespace HungerGames.Controllers
 {
     public class HomeController : Controller
     {
+        //en kommentar
         private readonly ApplicationDbContext _context;
         List<string> testList;
         public HomeController(ApplicationDbContext context)
