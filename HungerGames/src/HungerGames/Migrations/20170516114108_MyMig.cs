@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HungerGames.Migrations
 {
-    public partial class newmigggg : Migration
+    public partial class MyMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,20 +35,7 @@ namespace HungerGames.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Day",
-                columns: table => new
-                {
-                    DayID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Day", x => x.DayID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Evaluation",
+                name: "Evaluations",
                 columns: table => new
                 {
                     EvaluationID = table.Column<int>(nullable: false)
@@ -59,32 +46,34 @@ namespace HungerGames.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Evaluation", x => x.EvaluationID);
+                    table.PrimaryKey("PK_Evaluations", x => x.EvaluationID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Groups",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                    GroupID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Groups", x => x.ID);
+                    table.PrimaryKey("PK_Groups", x => x.GroupID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Themes",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ThemeID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Day = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Themes", x => x.ID);
+                    table.PrimaryKey("PK_Themes", x => x.ThemeID);
                 });
 
             migrationBuilder.CreateTable(
@@ -164,6 +153,7 @@ namespace HungerGames.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     EndDate = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
+                    Paragraph = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: false),
                     Status = table.Column<int>(nullable: false),
                     ThemeID = table.Column<int>(nullable: true)
@@ -175,7 +165,7 @@ namespace HungerGames.Migrations
                         name: "FK_Activities_Themes_ThemeID",
                         column: x => x.ThemeID,
                         principalTable: "Themes",
-                        principalColumn: "ID",
+                        principalColumn: "ThemeID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -277,10 +267,7 @@ namespace HungerGames.Migrations
                 name: "Activities");
 
             migrationBuilder.DropTable(
-                name: "Day");
-
-            migrationBuilder.DropTable(
-                name: "Evaluation");
+                name: "Evaluations");
 
             migrationBuilder.DropTable(
                 name: "Groups");

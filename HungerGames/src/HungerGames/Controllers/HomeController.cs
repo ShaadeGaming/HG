@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HungerGames.Data;
 using Microsoft.EntityFrameworkCore;
+using HungerGames.Models;
 
 namespace HungerGames.Controllers
 {
@@ -12,19 +13,19 @@ namespace HungerGames.Controllers
     {
         //en kommentar
         private readonly ApplicationDbContext _context;
-        List<string> testList;
+        //test strängen är till för att fixa designen
+        
         public HomeController(ApplicationDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-            testList = new List<string>();
-            for(int i=0;i<9; i++)
-            {
-                testList.Add(i.ToString());
-            }
-            return View(testList);
+
+
+            var activities = _context.Activities.ToList();
+
+            return View(activities);
         }
 
         public IActionResult About()
@@ -39,6 +40,12 @@ namespace HungerGames.Controllers
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+        public IActionResult Activity(int? ID)
+        {
+            
+            var r = _context.Activities.Where(x => x.ActivityID ==ID);
+            return View(r);
         }
 
         public IActionResult Error()

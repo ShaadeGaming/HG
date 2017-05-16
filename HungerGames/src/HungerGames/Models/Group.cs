@@ -7,7 +7,9 @@ namespace HungerGames.Models
 {
     public class Group
     {
-        public int ID { get; set; }
+        public int GroupID { get; set; }
+
+        public string Name { get; set; }
 
         public List<ApplicationUser> Users;
     }

@@ -25,6 +25,8 @@ namespace HungerGames.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("Paragraph");
+
                     b.Property<DateTime>("StartDate");
 
                     b.Property<int>("Status");
@@ -87,18 +89,6 @@ namespace HungerGames.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("HungerGames.Models.Day", b =>
-                {
-                    b.Property<int>("DayID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("DayID");
-
-                    b.ToTable("Days");
-                });
-
             modelBuilder.Entity("HungerGames.Models.Evaluation", b =>
                 {
                     b.Property<int>("EvaluationID")
@@ -117,22 +107,26 @@ namespace HungerGames.Migrations
 
             modelBuilder.Entity("HungerGames.Models.Group", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("GroupID")
                         .ValueGeneratedOnAdd();
 
-                    b.HasKey("ID");
+                    b.Property<string>("Name");
+
+                    b.HasKey("GroupID");
 
                     b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("HungerGames.Models.Theme", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("ThemeID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Day");
 
                     b.Property<string>("Name");
 
-                    b.HasKey("ID");
+                    b.HasKey("ThemeID");
 
                     b.ToTable("Themes");
                 });

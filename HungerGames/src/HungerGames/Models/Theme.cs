@@ -7,10 +7,11 @@ namespace HungerGames.Models
 {
     public class Theme
     {
-        public int ID { get; set; }
+        public int ThemeID { get; set; }
 
         public string Name { get; set; }
 
+        public string Day { get; set; }
         public List<Activity> Activities { get; set; }
     }
 }

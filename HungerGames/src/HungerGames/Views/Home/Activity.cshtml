@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Activity>
+@*
+   This page represent info from one activity
+*@
+
+@foreach (var item in Model)
+{
+    <h1>@item.Name</h1>
+    <p>
+        @item.Paragraph
+    </p>
+
+    <br />
+    <p> This event start: @item.StartDate and ends: @item.EndDate</p>
+
+}
+
+

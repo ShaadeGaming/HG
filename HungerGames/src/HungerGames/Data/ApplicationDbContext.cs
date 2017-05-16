@@ -18,7 +18,6 @@ namespace HungerGames.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<Theme> Themes { get; set; }
         public DbSet<Evaluation> Evaluations { get; set; }
-        public DbSet<Day> Days { get; set; }
 
 
         public static void Initialize(ApplicationDbContext context)
@@ -35,8 +34,8 @@ namespace HungerGames.Data
             {
                 var activities = new Activity[]
             {
-        new Activity{Name="Namnet på aktiviteten", Status= Status.Online },
-        new Activity{Name="Namnet på aktiviteten", Status= Status.Online},
+        new Activity{Name="Namnet på aktiviteten", Paragraph="Här kommer massor av text senare", Status= Status.Online },
+        new Activity{Name="Namnet på aktiviteten", Paragraph="Här kommer massor av text senare",Status= Status.Online},
         new Activity{Name="Namnet på aktiviteten", Status= Status.Online},
         new Activity{Name="Namnet på aktiviteten", Status= Status.Online},
         new Activity{Name="Namnet på aktiviteten", Status= Status.Online},

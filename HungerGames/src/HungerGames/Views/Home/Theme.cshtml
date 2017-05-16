@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Theme>
+
+@foreach (var item in Model)
+{
+  <p>@item.ThemeID</p>  
+<a class="btn btn-info"
+   asp-controller="Home"
+   asp-action="Activity" asp-route-ID="@item.ThemeID">
+   @item.Name
+</a>
+}
