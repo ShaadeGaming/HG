@@ -18,6 +18,7 @@ h2{
 li{
     text-decoration:none;
     color:black;
+    background-color:white;
 }
 ul{
     list-style-type: none;
