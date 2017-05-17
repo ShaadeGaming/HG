@@ -1,0 +1,27 @@
+﻿body {
+   
+    
+}
+p{
+    color:black
+}
+a:hover{
+    color:red;
+}
+.heading-hg {
+     background-image:url('/images/ctn_advancement_header.jpg');
+height:600px;
+}
+h2{
+    color:black;
+}
+li{
+    text-decoration:none;
+    color:black;
+}
+ul{
+    list-style-type: none;
+}
+.list-element-hg{
+    width:10px;
+}

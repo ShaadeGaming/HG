@@ -4,7 +4,7 @@
     int i = 0;
 
 }
-<div class="heading-hg" style="height:500px; background-image:url(../../wwwroot/images/ctn_advancement_header.jpg); display:block; background-size:cover;">
+<div class="heading-hg" style=" display:block;">
     <ul style="float:left; display:inline;">
         @foreach (var item in Model.Where(x => x.Status.ToString() == "Online"))
         {
@@ -23,11 +23,11 @@
         {
             if (i == 3)
             {
-                <li style="display:block;"></li>
+                <li class="list-element-hg" style="display:block;"></li>
                 i = 0;
             }
 
-            <li style="display:inline;"> <a class="btn btn-info" asp-controller="Home" asp-action="Activity" asp-route-ID="@item.ActivityID">@item.Name</a></li>
+            <li  class="list-element-hg" style="display:inline;"> <a class="btn btn-info" asp-controller="Home" asp-action="Activity" asp-route-ID="@item.ActivityID">@item.Name</a></li>
             i++;
         }
     </ul>
