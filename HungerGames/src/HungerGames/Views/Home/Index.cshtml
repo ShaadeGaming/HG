@@ -4,14 +4,13 @@
     int i = 0;
 
 }
-<div class="heading-hg">
-    <img style="display:inline" src="~/images/banner1.svg" alt="Text" /> 
+<div class="heading-hg" style="height:500px; background-image:url(../../wwwroot/images/ctn_advancement_header.jpg); display:block; background-size:cover;">
     <ul style="float:left; display:inline;">
         @foreach (var item in Model.Where(x => x.Status.ToString() == "Online"))
         {
             if (i == 3)
             {
-                <li style="display:block;"></li>
+                <li style="display:block; max-width:10px; max-height:10px;"></li>
                 i = 0;
             }
 
